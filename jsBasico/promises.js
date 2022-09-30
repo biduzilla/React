@@ -1,5 +1,6 @@
 function esperarAe(msg, tempo){
     return new Promise((resolve, reject)=>{
+        if(typeof msg !== 'string') reject('BAD VALUE');
         console.log(`Tempo: ${tempo}`);
         setTimeout(()=>{
             resolve(msg);
@@ -17,11 +18,13 @@ function aleatorio(min, max){
 esperarAe('frase 1', aleatorio(1,3))
 .then(resposta => {
     console.log(resposta);
-    return esperarAe('frase 2', aleatorio(1,3));
+    return esperarAe(20000, aleatorio(1,3));
 })
 .then(resposta =>{
     console.log(resposta);
     return esperarAe('frase 2', aleatorio(1,3));
 })
-.catch();
+.catch(e=> {
+    console.log('Error: ', e);
+});
 ;
