@@ -1,13 +1,19 @@
-import { Component } from "react";
-import "./styles.css";
+import './styles.css';
+
+import { Component } from 'react';
 
 export class Button extends Component {
-
     render() {
-        const { text, onClick, disable } = this.props;
-        return (
-            <button classname="button" onClick={onClick} disable={disable}>{text}</button>
-        );
+      const { text, onClick, disabled } = this.props;
+  
+      return (
+        <button 
+          className='button' 
+          onClick={onClick}
+          disabled={disabled}
+        >
+          {text}
+        </button>
+      );
     }
-
-}
+  }
