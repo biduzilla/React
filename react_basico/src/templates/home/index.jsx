@@ -1,11 +1,11 @@
 import './style.css';
-// import { Component } from 'react';
+import React,{ useEffect, useState, useCallback } from 'react';
+
 
 import { loadPosts } from '../../utils/loadPosts'
 import { Posts } from '../../components/Posts/index';
 import { Button } from '../../components/Button';
 import { TextInput } from '../../components/TextInput';
-import { useEffect, useState, useCallback } from 'react';
 
 export const Home = () => {
 
@@ -40,7 +40,7 @@ export const Home = () => {
   }
 
   const noMorePosts = page + postsPerPage >= allPosts.length;
-  const filteredPosts = !!searchValue ?
+  const filteredPosts = !searchValue ?
     allPosts.filter(post => {
       return post.title.toLowerCase().includes(
         searchValue.toLowerCase()
