@@ -1,5 +1,5 @@
 import './style.css';
-import React,{ useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 
 import { loadPosts } from '../../utils/loadPosts'
@@ -12,7 +12,7 @@ export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [page, setPage] = useState(0);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(2);
   const [searchValue, setSearchValue] = useState('');
 
   const handleLoadPosts = useCallback(async (page, postsPerPage) => {
@@ -40,7 +40,8 @@ export const Home = () => {
   }
 
   const noMorePosts = page + postsPerPage >= allPosts.length;
-  const filteredPosts = !searchValue ?
+  // eslint-disable-next-line no-extra-boolean-cast
+  const filteredPosts = !!searchValue ?
     allPosts.filter(post => {
       return post.title.toLowerCase().includes(
         searchValue.toLowerCase()
@@ -54,7 +55,7 @@ export const Home = () => {
         {!!searchValue && (
           <h1>Search value: {searchValue}</h1>
         )}
-         <TextInput searchValue={searchValue} handleChange={handleChange} />
+        <TextInput searchValue={searchValue} handleChange={handleChange} />
       </div>
       {filteredPosts.length > 0 && (
         <Posts posts={filteredPosts} />
@@ -62,7 +63,7 @@ export const Home = () => {
       {filteredPosts.length === 0 && (
         <p>Não existem posts =(</p>
       )}
-            <div className="button-container">
+      <div className="button-container">
         {!searchValue && (
           <Button
             text="Load more posts"
