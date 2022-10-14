@@ -1,3 +1,4 @@
+import Button from '../button';
 import InputText from '../inputText';
 import ListaSuspensa from '../listaSuspensa';
 import './Form.css';
@@ -23,6 +24,9 @@ const Form = () => {
                 <InputText label="Cargo" placeholder="Digite seu Cargo" />
                 <InputText label="Imagem" placeholder="Digite o endereço de Imagem" />
                 <ListaSuspensa itens={times} label="Times"/>
+                <Button>
+                    Criar Card
+                </Button>
             </form>
         </section>
     );
