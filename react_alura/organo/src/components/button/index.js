@@ -2,7 +2,7 @@ import './style.css';
 
 const Button = (props) => {
     return(
-        <button className='button'>
+        <button  className='button'>
             {props.children}
         </button>
     );

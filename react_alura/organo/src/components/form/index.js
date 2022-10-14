@@ -14,16 +14,21 @@ const Form = () => {
         'Inovação',
     ];
 
+    const aoSalvar = (event) =>{
+        event.preventDefault();
+        console.log('Form submit');
+    };
+
     return (
         <section className="form">
-            <form>
+            <form onSubmit={aoSalvar}>
                 <h2>
                     Preencha os dados para criar o card do colaborador!
                 </h2>
-                <InputText label="Nome" placeholder="Digite seu Nome" />
-                <InputText label="Cargo" placeholder="Digite seu Cargo" />
+                <InputText obrigatorio={true} label="Nome" placeholder="Digite seu Nome" />
+                <InputText obrigatorio={true} label="Cargo" placeholder="Digite seu Cargo" />
                 <InputText label="Imagem" placeholder="Digite o endereço de Imagem" />
-                <ListaSuspensa itens={times} label="Times"/>
+                <ListaSuspensa obrigatorio={true} itens={times} label="Times"/>
                 <Button>
                     Criar Card
                 </Button>
