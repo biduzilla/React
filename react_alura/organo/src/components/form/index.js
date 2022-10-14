@@ -1,7 +1,18 @@
 import InputText from '../inputText';
+import ListaSuspensa from '../listaSuspensa';
 import './Form.css';
 
 const Form = () => {
+    
+    const times = [
+        'Programação',
+        'Front-end',
+        'Data science',
+        'Design',
+        'Mobile',
+        'Inovação',
+    ];
+
     return (
         <section className="form">
             <form>
@@ -11,6 +22,7 @@ const Form = () => {
                 <InputText label="Nome" placeholder="Digite seu Nome" />
                 <InputText label="Cargo" placeholder="Digite seu Cargo" />
                 <InputText label="Imagem" placeholder="Digite o endereço de Imagem" />
+                <ListaSuspensa itens={times} label="Times"/>
             </form>
         </section>
     );
