@@ -22,7 +22,12 @@ const Form = (props) => {
 
     const aoSalvar = (event) => {
         event.preventDefault();
-        console.log('Form submit', nome, cargo, imagem, time);
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
     };
 
     return (
@@ -58,7 +63,7 @@ const Form = (props) => {
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />
-                
+
                 <Button>
                     Criar Card
                 </Button>
